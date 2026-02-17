@@ -1,19 +1,16 @@
+<link rel="stylesheet" href="style.css">
 <div class="card">
-  <h2>Přidat uživatele</h2>
   <form id="createForm">
     <div class="row">
-      <label>Jméno:</label><br />
-      <input name="name" required />
+      <input name="name" placeholder="Zadejte český překlad..." required />
+      <input type="number" name="age" min="0" placeholder="Zadejte anglický překlad..." required />
+      <input type="text">
     </div>
-    <div class="row">
-      <label>Věk:</label><br />
-      <input type="number" name="age" min="0" required />
-    </div>
-    <button type="submit">Přidat</button>
+    <button type="submit" id="pridat">Přidat</button>
     <p class="muted" id="createMsg"></p>
   </form>
 </div>
-
+<!--
 <div class="card">
   <h2>Seznam uživatelů</h2>
 
@@ -30,3 +27,4 @@
 
   <p class="muted">Tip: Smazání je přes DELETE, editace přes PUT (odesílá se přes JS fetch).</p>
 </div>
+-->
