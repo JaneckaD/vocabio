@@ -52,7 +52,7 @@ if (req.url === "/" && req.method === "GET") {
     </tr>
   `).join("");
 
-  const indexTpl = loadView("index.html");
+  const indexTpl = loadView("home.html");
   const content = render(indexTpl, {
     rows: rows || `<tr><td colspan="4">Žádná data.</td></tr>`
   });
@@ -82,6 +82,7 @@ if (req.url === "/" && req.method === "GET") {
     const content = render(tpl, user);
     return sendHtml(res, renderLayout({ title: "Detail", heading: "Detail uživatele", content }));
   }
+
 
   // GET /edit/:id (edit formulář)
   if (req.url.startsWith("/edit/") && req.method === "GET") {
