@@ -4,8 +4,8 @@ const store = require("../storage/usersStore");
 
 const VIEWS_DIR = path.join(__dirname, "..", "views");
 
-function loadView(name) {
-  return fs.readFileSync(path.join(VIEWS_DIR, name), "utf-8");
+function loadView(cz) {
+  return fs.readFileSync(path.join(VIEWS_DIR, cz), "utf-8");
 }
 
 function render(template, vars) {
@@ -42,8 +42,8 @@ if (req.url === "/" && req.method === "GET") {
   const rows = users.map(u => `
     <tr>
       <td>${u.id}</td>
-      <td><a href="/user/${u.id}">${u.name}</a></td>
-      <td>${u.age}</td>
+      <td><a href="/user/${u.id}">${u.cz}</a></td>
+      <td>${u.en}</td>
       <td>
         <a href="/user/${u.id}">Detail</a>
         <a href="/edit/${u.id}">Upravit</a>

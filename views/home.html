@@ -1,12 +1,46 @@
-<div class="circle blue">
-    <a href="">Seznam</a>
+<div class="content">
+    <button class="circle blue" style="background-color: #92C5FF; border: #429AFF 2px solid;">
+        <p>Seznam</p>
+    </button>
+
+    <button class="circle green" style="background-color: #C6FFC0; border: #80E587 2px solid; width: 200px; height: 200px;">
+        <p style="font-size: 30px;">Hrát</p>
+    </button>
+
+    <button class="circle red" style="background-color: #FF9292; border: #E58080 2px solid;">
+        <p>Přidat</p>
+    </button>
 </div>
 
-<div class="circle blue">
-    <a href="">Hrát</a>
-</div>
+<style>
+    .circle {
+        height: 150px;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+    }
 
-<div class="circle blue">
-    <a href="">Přidat</a>
-</div>
+    button p {
+        font-weight: 800;
+        color: black;
+        font-size: 20px;
+        text-decoration: none;
+        text-transform: none;
+    }
 
+    .content {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+    }
+
+    button {
+        background-color: none;
+        border: 2px solid;
+    }
+</style>

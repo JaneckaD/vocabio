@@ -30,14 +30,14 @@ function handleApiUsers(req, res) {
     return readBodyJson(req, (err, data) => {
       if (err) return sendJson(res, 400, { error: "Neplatný JSON" });
 
-      const name = String(data.name || "").trim();
-      const age = Number(data.age);
+      const cz = String(data.cz || "").trim();
+      const en = String(data.en);
 
-      if (!name || Number.isNaN(age)) {
-        return sendJson(res, 400, { error: "Chybí name nebo age" });
+      if (!cz || String.isNaN(en)) {
+        return sendJson(res, 400, { error: "Chybí cz nebo en" });
       }
 
-      const created = store.create({ name, age });
+      const created = store.create({ cz, en });
       return sendJson(res, 201, created);
     });
   }
@@ -51,8 +51,8 @@ function handleApiUsers(req, res) {
       if (err) return sendJson(res, 400, { error: "Neplatný JSON" });
 
       const patch = {};
-      if (data.name !== undefined) patch.name = String(data.name).trim();
-      if (data.age !== undefined) patch.age = Number(data.age);
+      if (data.cz !== undefined) patch.cz = String(data.cz).trim();
+      if (data.en !== undefined) patch.en = String(data.en);
 
       const updated = store.update(id, patch);
       if (!updated) return sendJson(res, 404, { error: "Uživatel nenalezen" });

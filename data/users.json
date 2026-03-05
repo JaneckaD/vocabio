@@ -1,17 +1,17 @@
 [
   {
     "id": 1,
-    "name": "TomášMarek",
-    "age": 18
+    "cz": "veselý pes",
+    "en": "happy dog"
   },
   {
     "id": 2,
-    "name": "Michal David",
-    "age": 65
+    "cz": "smutná kočka",
+    "en": "sad cat"
   },
   {
     "id": 3,
-    "name": "Pepa",
-    "age": 23
+    "cz": "Petr",
+    "en": "Peter"
   }
 ]

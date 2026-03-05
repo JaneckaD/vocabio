@@ -15,7 +15,7 @@ if (createForm) {
   createForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const fd = new FormData(createForm);
-    const payload = { name: fd.get("name"), age: Number(fd.get("age")) };
+    const payload = { cz: fd.get("cz"), en: (fd.get("en")) };
 
     const msg = document.getElementById("createMsg");
     try {
@@ -34,7 +34,7 @@ if (editForm) {
     e.preventDefault();
     const id = editForm.dataset.id;
     const fd = new FormData(editForm);
-    const payload = { name: fd.get("name"), age: Number(fd.get("age")) };
+    const payload = { cz: fd.get("cz"), en: (fd.get("en")) };
 
     const msg = document.getElementById("editMsg");
     try {
