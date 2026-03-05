@@ -12,6 +12,15 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "nodemon": "^3.1.11"
-  }
+    "nodemon": "^3.1.14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaneckaD/vocabio.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JaneckaD/vocabio/issues"
+  },
+  "homepage": "https://github.com/JaneckaD/vocabio#readme"
 }
