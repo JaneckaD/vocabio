@@ -39,18 +39,7 @@ function handlePages(req, res) {
 if (req.url === "/" && req.method === "GET") {
   const users = store.getAll();
 
-  const rows = users.map(u => `
-    <tr>
-      <td>${u.id}</td>
-      <td><a href="/user/${u.id}">${u.cz}</a></td>
-      <td>${u.en}</td>
-      <td>
-        <a href="/user/${u.id}">Detail</a>
-        <a href="/edit/${u.id}">Upravit</a>
-        <button data-delete-id="${u.id}">Smazat</button>
-      </td>
-    </tr>
-  `).join("");
+  const rows = users.map(u => "").join("");
 
   const indexTpl = loadView("home.html");
   const content = render(indexTpl, {
@@ -68,6 +57,42 @@ if (req.url === "/" && req.method === "GET") {
 }
 
 
+  // GET / seznam
+if (req.url === "/users" && req.method === "GET") {
+  const users = store.getAll();
+
+  const rows = users.map(u => `
+    <tr>
+      <td>${u.id}</td>
+      <td><a href="/user/${u.id}">${u.cz}</a></td>
+      <td>${u.en}</td>
+      <td>
+        <a href="/user/${u.id}">Detail</a>
+        <a href="/edit/${u.id}">Upravit</a>
+        <button data-delete-id="${u.id}">Smazat</button>
+      </td>
+    </tr>
+  `).join("");
+
+  const indexTpl = loadView("seznam.html");
+  const content = render(indexTpl, {
+    rows: rows || `<tr><td colspan="4">Žádná data.</td></tr>`
+  });
+
+  return sendHtml(
+    res,
+    renderLayout({
+      title: "Uživatelé",
+      heading: "Správa uživatelů",
+      content
+    })
+  );
+}
+
+
+
+
+      
   // GET /user/:id (detail)
   if (req.url.startsWith("/user/") && req.method === "GET") {
     const id = Number(req.url.split("/")[2]);
