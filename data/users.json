@@ -13,5 +13,30 @@
     "id": 3,
     "cz": "černý obyvatel",
     "en": "negger"
+  },
+  {
+    "id": 4,
+    "cz": "smutná kočka",
+    "en": "a sad cat"
+  },
+  {
+    "id": 5,
+    "cz": "úcta",
+    "en": "an honor"
+  },
+  {
+    "id": 6,
+    "cz": "učitel",
+    "en": "teacher"
+  },
+  {
+    "id": 7,
+    "cz": "žák",
+    "en": "a student"
+  },
+  {
+    "id": 8,
+    "cz": "had",
+    "en": "snake"
   }
 ]

@@ -1,15 +1,18 @@
 <div class="content">
     <div class="score">
         <p>Nevím: </p>
+        <p id="nevim"></p>
         <p>Vím: </p>
+        <p id="vim"></p>
     </div>
     <div class="top">
-        <div class="cross"></div>
+        <button class="cross" id="no"></button>
         <div class="question"></div>
-        <div class="check"></div>
+        <div class="answer"></div>
+        <button class="check" id="yes"><img src="/imgs/check.png" alt=""></button>
     </div>
     <div class="bottom">
-
+        <button class="function" id="swap"><img src="/imgs/close.png" alt=""></button>
     </div>
 </div>
 
@@ -18,10 +21,11 @@
     .content {
         width: 100%;
         height: 100Vh;
-        background-color: aqua;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+        gap: 60px;
     }
 
     .score {
@@ -33,6 +37,11 @@
         gap: 20px;
     }
 
+    img {
+        width: 30px;
+        height: 30px;
+    }
+
     .top {
         width: 400px;
         display: flex;
@@ -42,18 +51,148 @@
     }
 
     .bottom {
-
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
     }
 
     .cross {
         width: 50px;
         height: 50px;
         background-color: #E58080;
+        border-radius: 50%;
+        border: none;
+        box-shadow: 0 0 10px rgb(0, 0, 0, 30%);
     }
 
     .check {
         width: 50px;
         height: 50px;
+        border-radius: 50%;
         background-color: #80E587;
+        border: none;
+        box-shadow: 0 0 10px rgb(0, 0, 0, 30%);
     }
+
+    .question, .answer {
+        background-color: white;
+        border-radius: 15px;
+        padding: 16px;
+        box-shadow: 0 0 10px rgb(0, 0, 0, 30%);
+        max-width: 300px;
+    }
+
+    .question, .answer p {
+        text-align: center;
+    }
+
+    .top-card {
+        display: flex;
+        gap: 5px;
+        margin-top: -15px;
+        margin-bottom: -15px;
+        justify-content: start;
+        align-items: end;
+    }
+
+    .bottom-card {
+        display: flex;
+        gap: 5px;
+        margin-bottom: -10px;
+        justify-content: start;
+        align-items: start;
+    }
+
+    .main {
+        font-size: 22px;
+    }
+
+    .info {
+        color: rgb(148, 148, 148);
+    }
+
+    .line {
+        width: 95%;
+        height: 2px;
+        border-radius: 10px;
+        background-color: rgb(148, 148, 148);
+        margin-bottom: -15px;
+    }
+
+    .function {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        border: none;
+        box-shadow: 0 0 10px rgb(0, 0, 0, 30%);
+    }
+
 </style>
+
+<script>
+let slovicka = [];
+let skoreVim = 0;
+let skoreNevim = 0;
+
+const kartaQuestion = document.querySelector('.question');
+const kartaAnswer = document.querySelector('.answer');
+const btnSwap = document.getElementById('swap');
+const btnYes = document.getElementById('yes');
+const btnNo = document.getElementById('no');
+const ukazatelVim = document.getElementById('vim');
+const ukazatelNevim = document.getElementById('nevim');
+
+async function nactiData() {
+    try {
+        const response = await fetch('/api/seznam');
+        slovicka = await response.json();
+        
+        nactiDalsiKartu();
+    } catch (error) {
+        console.error("Nepodařilo se načíst databázi:", error);
+    }
+}
+
+function nactiDalsiKartu() {
+    if (slovicka.length === 0) return;
+
+    const randomIndex = Math.floor(Math.random() * slovicka.length);
+    const nahodnaPolozka = slovicka[randomIndex];
+    kartaQuestion.textContent = nahodnaPolozka.cz; 
+    kartaAnswer.textContent = nahodnaPolozka.en;
+
+    kartaQuestion.style.display = 'block';
+    kartaAnswer.style.display = 'none';
+    
+    btnSwap.style.display = 'inline-block';
+    btnYes.style.display = 'none';
+    btnNo.style.display = 'none';
+}
+
+btnSwap.addEventListener('click', () => {
+    kartaQuestion.style.display = 'none';
+    kartaAnswer.style.display = 'block';
+    
+    btnSwap.style.display = 'none';
+    btnYes.style.display = 'inline-block';
+    btnNo.style.display = 'inline-block';
+});
+
+
+btnYes.addEventListener('click', () => {
+    skoreVim++;
+    ukazatelVim.textContent = skoreVim;
+    nactiDalsiKartu();
+});
+
+btnNo.addEventListener('click', () => {
+    skoreNevim++;
+    ukazatelNevim.textContent = skoreNevim; 
+    nactiDalsiKartu();
+});
+
+
+nactiData();
+</script>
