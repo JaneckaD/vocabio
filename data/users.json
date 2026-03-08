@@ -40,5 +40,209 @@
     "cz": "stát",
     "en": "stand",
     "lvl": "B1"
+  },
+  {
+    "id": 9,
+    "cz": "myš",
+    "en": "a mouse",
+    "lvl": "C2"
+  },
+  {
+    "id": 10,
+    "cz": "Evening",
+    "en": "Večer",
+    "lvl": "C1"
+  },
+  {
+    "id": 11,
+    "cz": "pes",
+    "en": "a dog",
+    "lvl": "B2"
+  },
+  {
+    "id": 12,
+    "cz": "klíč",
+    "en": "a key",
+    "lvl": "B1"
+  },
+  {
+    "id": 13,
+    "cz": "obchod",
+    "en": "a store",
+    "lvl": "B2"
+  },
+  {
+    "id": 14,
+    "cz": "černá",
+    "en": "black",
+    "lvl": "A2"
+  },
+  {
+    "id": 15,
+    "cz": "bílá",
+    "en": "white",
+    "lvl": "B2"
+  },
+  {
+    "id": 16,
+    "cz": "hrad",
+    "en": "a castle",
+    "lvl": "C2"
+  },
+  {
+    "id": 17,
+    "cz": "kniha",
+    "en": "a book",
+    "lvl": "C2"
+  },
+  {
+    "id": 18,
+    "cz": "káva",
+    "en": "a coffee",
+    "lvl": "C2"
+  },
+  {
+    "id": 19,
+    "cz": "telefon",
+    "en": "a phone",
+    "lvl": "C2"
+  },
+  {
+    "id": 20,
+    "cz": "závislý",
+    "en": "addicted",
+    "lvl": "C1"
+  },
+  {
+    "id": 21,
+    "cz": "žirafq",
+    "en": "girrafe",
+    "lvl": "C1"
+  },
+  {
+    "id": 22,
+    "cz": "bota",
+    "en": "a shoe",
+    "lvl": "C1"
+  },
+  {
+    "id": 23,
+    "cz": "kráva",
+    "en": "a cow",
+    "lvl": "B2"
+  },
+  {
+    "id": 24,
+    "cz": "klávesnice",
+    "en": "a keyboard",
+    "lvl": "B2"
+  },
+  {
+    "id": 25,
+    "cz": "auto",
+    "en": "a car",
+    "lvl": "B1"
+  },
+  {
+    "id": 26,
+    "cz": "ples",
+    "en": "prom",
+    "lvl": "B1"
+  },
+  {
+    "id": 27,
+    "cz": "podnikání",
+    "en": "a business",
+    "lvl": "B1"
+  },
+  {
+    "id": 28,
+    "cz": "alkohol",
+    "en": "alcohol",
+    "lvl": "A2"
+  },
+  {
+    "id": 29,
+    "cz": "tygr",
+    "en": "a tyger",
+    "lvl": "A2"
+  },
+  {
+    "id": 30,
+    "cz": "králík",
+    "en": "a rabbit",
+    "lvl": "A1"
+  },
+  {
+    "id": 31,
+    "cz": "Ahoj",
+    "en": "Hello",
+    "lvl": "A1"
+  },
+  {
+    "id": 32,
+    "cz": "monitor",
+    "en": "a display",
+    "lvl": "A1"
+  },
+  {
+    "id": 33,
+    "cz": "učebna",
+    "en": "a classroom",
+    "lvl": "A1"
+  },
+  {
+    "id": 34,
+    "cz": "jídlo",
+    "en": "food",
+    "lvl": "A1"
+  },
+  {
+    "id": 35,
+    "cz": "česko",
+    "en": "czechia",
+    "lvl": "A2"
+  },
+  {
+    "id": 36,
+    "cz": "cigareta",
+    "en": "a cigarette",
+    "lvl": "A2"
+  },
+  {
+    "id": 37,
+    "cz": "mlha",
+    "en": "a fog",
+    "lvl": "B1"
+  },
+  {
+    "id": 38,
+    "cz": "dveře",
+    "en": "door",
+    "lvl": "B2"
+  },
+  {
+    "id": 39,
+    "cz": "mikrofon",
+    "en": "a microfon",
+    "lvl": "B2"
+  },
+  {
+    "id": 40,
+    "cz": "sklo",
+    "en": "a glass",
+    "lvl": "B2"
+  },
+  {
+    "id": 41,
+    "cz": "překladač",
+    "en": "a translator",
+    "lvl": "C1"
+  },
+  {
+    "id": 42,
+    "cz": "volat",
+    "en": "call",
+    "lvl": "C2"
   }
 ]
