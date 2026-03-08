@@ -12,12 +12,6 @@
     "lvl": "A2"
   },
   {
-    "id": 3,
-    "cz": "hlava",
-    "en": "a head",
-    "lvl": "A1"
-  },
-  {
     "id": 4,
     "cz": "úcta",
     "en": "an honor",
@@ -46,11 +40,5 @@
     "cz": "stát",
     "en": "stand",
     "lvl": "B1"
-  },
-  {
-    "id": 10,
-    "cz": "křeček",
-    "en": "a hamster",
-    "lvl": "B2"
   }
 ]

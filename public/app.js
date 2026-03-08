@@ -88,7 +88,6 @@ document.addEventListener("click", async (e) => {
   if (!btn) return;
 
   const id = btn.dataset.deleteId;
-  if (!confirm("Opravdu smazat uživatele #" + id + "?")) return;
 
   try {
     await api(`/api/users/${id}`, { method: "DELETE" });
