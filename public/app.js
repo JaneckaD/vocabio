@@ -88,7 +88,7 @@ document.addEventListener("click", async (e) => {
   if (!btn) return;
 
   const id = btn.dataset.deleteId;
-
+  
   try {
     await api(`/api/users/${id}`, { method: "DELETE" });
     window.location.href = "/";
