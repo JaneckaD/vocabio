@@ -1,34 +1,10 @@
 <div class="content">
-    <div class="frame">
-        <div class="filtr">
+    <div class="filtr">
             
-        </div>
+    </div>
+    <div class="frame">
         <div class="seznam">
-            <div>
-                <div class="top">
-                    <p class="info">cz</p>
-                    <p class="main">Ahoj</p>
-                </div>
-                <div class="line"></div>
-                <div class="bottom">
-                    <p class="info">en</p>
-                    <p class="main">Hello</p>
-                </div>
-            </div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
-            <div>ahoj</div>
+            {{rows}}
         </div>
     </div>
 </div>
@@ -39,20 +15,21 @@
     .content {
         width: 100%;
         height: 100vh;
-        background-color: aqua;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
     .frame {
-        background-color: green;
         width: 80%;
         height: 80%;
-        overflow: hidden;
+        overflow: auto;
+
     }
     .filtr {
-        width: 100%;
-        height: 40px;
+        width: 50%;
+        min-width: 400px;
+        height: 50px;
         background-color: pink;
     }
 
@@ -60,7 +37,9 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 20px; 
-        width: 100%; 
+        width: 100%;
+        padding: 10px 10px;
+        box-sizing: border-box;
     }
 
     .seznam > div {
@@ -68,6 +47,7 @@
         border-radius: 15px;
         padding: 16px;
         box-shadow: 0 0 10px rgb(0, 0, 0, 30%);
+        max-width: 300px;
     }
 
     .top {
@@ -82,7 +62,7 @@
     .bottom {
         display: flex;
         gap: 5px;
-        margin-bottom: -15px;
+        margin-bottom: -10px;
         justify-content: start;
         align-items: start;
     }
@@ -101,5 +81,22 @@
         border-radius: 10px;
         background-color: rgb(148, 148, 148);
         margin-bottom: -15px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+    }
+
+    .detail {
+        background-color: #92C5FF;
+        border: 2px solid #429AFF;
+        border-radius: 10px;
+        padding: 5px 10px;
+        font-weight: 500;
+        font-size: 14px;
+        text-decoration: none;
+        text-transform: none;
+        color: black;
     }
 </style>

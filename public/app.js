@@ -39,7 +39,7 @@ if (editForm) {
     const msg = document.getElementById("editMsg");
     try {
       await api(`/api/seznam/${id}`, { method: "PUT", body: JSON.stringify(payload) });
-      window.location.href = `/user/${id}`;
+      window.location.href = `/seznam/${id}`;
     } catch (err) {
       msg.textContent = "Chyba: " + JSON.stringify(err.data);
     }

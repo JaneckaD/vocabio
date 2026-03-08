@@ -57,25 +57,32 @@ if (req.url === "/" && req.method === "GET") {
 
 
   // GET / seznam
+// GET /seznam
 if (req.url === "/seznam" && req.method === "GET") {
   const users = store.getAll();
 
+  // Vygenerování kartiček místo řádků tabulky
   const rows = users.map(u => `
-    <tr>
-      <td>${u.id}</td>
-      <td><a href="/user/${u.id}">${u.cz}</a></td>
-      <td>${u.en}</td>
-      <td>
-        <a href="/user/${u.id}">Detail</a>
-        <a href="/edit/${u.id}">Upravit</a>
-        <button data-delete-id="${u.id}">Smazat</button>
-      </td>
-    </tr>
+    <div>
+        <div class="top">
+            <p class="info">cz</p>
+            <p class="main">${u.cz}</p>
+        </div>
+        <div class="line"></div>
+        <div class="bottom">
+            <p class="info">en</p>
+            <p class="main">${u.en}</p>
+        </div>
+        <div class="buttons">
+            <a href="/seznam/${u.id}" class="detail">detail</a>
+        </div>
+    </div>
   `).join("");
 
   const indexTpl = loadView("seznam.html");
   const content = render(indexTpl, {
-    rows: rows || `<tr><td colspan="4">Žádná data.</td></tr>`
+    // Pokud je databáze prázdná, zobrazíme hezkou hlášku (místo tabulkového <td colspan>)
+    rows: rows || `<div style="grid-column: 1 / -1; text-align: center;">Zatím tu nejsou žádná slovíčka.</div>`
   });
 
   return sendHtml(
