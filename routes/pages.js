@@ -56,7 +56,6 @@ if (req.url === "/" && req.method === "GET") {
 }
 
 
-  // GET / seznam
 // GET /seznam
 if (req.url === "/seznam" && req.method === "GET") {
   const users = store.getAll();
@@ -154,7 +153,7 @@ if (req.url === "/seznam" && req.method === "GET") {
   return sendHtml(
     res,
     renderLayout({
-      title: "Hra",
+      title: "Přidat",
       content
     })
   );

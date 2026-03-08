@@ -19,7 +19,7 @@ if (createForm) {
 
     const msg = document.getElementById("createMsg");
     try {
-      await api("/api/seznam", { method: "POST", body: JSON.stringify(payload) });
+      await api("/api/pridat", { method: "POST", body: JSON.stringify(payload) });
       window.location.reload();
     } catch (err) {
       msg.textContent = "Chyba: " + JSON.stringify(err.data);

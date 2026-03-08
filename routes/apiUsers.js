@@ -31,7 +31,7 @@ function handleApiUsers(req, res) {
       if (err) return sendJson(res, 400, { error: "Neplatný JSON" });
 
       const cz = String(data.cz || "").trim();
-      const en = String(data.en);
+      const en = String(data.en || "").trim();
 
       if (!cz || String.isNaN(en)) {
         return sendJson(res, 400, { error: "Chybí cz nebo en" });
@@ -62,7 +62,7 @@ function handleApiUsers(req, res) {
   }
 
   // DELETE /api/users/:id
-  if (req.url.startsWith("/api/seznam/") && req.method === "DELETE") {
+  if (req.url.startsWith("/api/delete/") && req.method === "DELETE") {
     const id = Number(req.url.split("/")[3]);
     if (Number.isNaN(id)) return sendJson(res, 400, { error: "Neplatné ID" });
 
