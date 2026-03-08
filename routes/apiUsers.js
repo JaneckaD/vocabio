@@ -19,14 +19,14 @@ function sendJson(res, status, data) {
 
 function handleApiUsers(req, res) {
     // GET /api/users – vrátí všechny uživatele
-    if (req.url === "/api/users" && req.method === "GET") {
+    if (req.url === "/api/seznam" && req.method === "GET") {
     const users = store.getAll();
     return sendJson(res, 200, users);
     }
 
 
   // POST /api/users
-  if (req.url === "/api/users" && req.method === "POST") {
+  if (req.url === "/api/seznam" && req.method === "POST") {
     return readBodyJson(req, (err, data) => {
       if (err) return sendJson(res, 400, { error: "Neplatný JSON" });
 
@@ -43,7 +43,7 @@ function handleApiUsers(req, res) {
   }
 
   // PUT /api/users/:id
-  if (req.url.startsWith("/api/users/") && req.method === "PUT") {
+  if (req.url.startsWith("/api/seznam/") && req.method === "PUT") {
     const id = Number(req.url.split("/")[3]);
     if (Number.isNaN(id)) return sendJson(res, 400, { error: "Neplatné ID" });
 
@@ -62,7 +62,7 @@ function handleApiUsers(req, res) {
   }
 
   // DELETE /api/users/:id
-  if (req.url.startsWith("/api/users/") && req.method === "DELETE") {
+  if (req.url.startsWith("/api/seznam/") && req.method === "DELETE") {
     const id = Number(req.url.split("/")[3]);
     if (Number.isNaN(id)) return sendJson(res, 400, { error: "Neplatné ID" });
 

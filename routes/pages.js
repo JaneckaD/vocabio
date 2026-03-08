@@ -49,8 +49,7 @@ if (req.url === "/" && req.method === "GET") {
   return sendHtml(
     res,
     renderLayout({
-      title: "Uživatelé",
-      heading: "Správa uživatelů",
+      title: "VOCAB.io",
       content
     })
   );
@@ -58,7 +57,7 @@ if (req.url === "/" && req.method === "GET") {
 
 
   // GET / seznam
-if (req.url === "/users" && req.method === "GET") {
+if (req.url === "/seznam" && req.method === "GET") {
   const users = store.getAll();
 
   const rows = users.map(u => `
@@ -82,8 +81,7 @@ if (req.url === "/users" && req.method === "GET") {
   return sendHtml(
     res,
     renderLayout({
-      title: "Uživatelé",
-      heading: "Správa uživatelů",
+      title: "Seznam",
       content
     })
   );
@@ -94,7 +92,7 @@ if (req.url === "/users" && req.method === "GET") {
 
       
   // GET /user/:id (detail)
-  if (req.url.startsWith("/user/") && req.method === "GET") {
+  if (req.url.startsWith("/seznam/") && req.method === "GET") {
     const id = Number(req.url.split("/")[2]);
     const user = store.getById(id);
     if (!user) {
@@ -124,6 +122,36 @@ if (req.url === "/users" && req.method === "GET") {
     const content = render(tpl, user);
     return sendHtml(res, renderLayout({ title: "Editace", heading: "Editace uživatele", content }));
   }
+
+
+  if (req.url === "/hra" && req.method === "GET") {
+  const gameTpl = loadView("game.html");
+  
+  const content = render(gameTpl, {});
+
+  return sendHtml(
+    res,
+    renderLayout({
+      title: "Hra",
+      content
+    })
+  );
+}
+
+
+  if (req.url === "/pridat" && req.method === "GET") {
+  const gameTpl = loadView("post.html");
+  
+  const content = render(gameTpl, {});
+
+  return sendHtml(
+    res,
+    renderLayout({
+      title: "Hra",
+      content
+    })
+  );
+}
 
   return false;
 }
