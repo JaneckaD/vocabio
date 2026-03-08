@@ -2,46 +2,49 @@
   {
     "id": 1,
     "cz": "veselý pes skáče",
-    "en": "a happy dog is jumping"
+    "en": "a happy dog is jumping",
+    "lvl": "B1"
   },
   {
     "id": 2,
-    "cz": "smutná kočka, která sedí na stromě",
-    "en": "sad cat which is sitting on a tree"
+    "cz": "smutný",
+    "en": "sad",
+    "lvl": "A2"
   },
   {
     "id": 3,
-    "cz": "černý obyvatel",
-    "en": "negger"
+    "cz": "hlava",
+    "en": "a head",
+    "lvl": "A1"
   },
   {
     "id": 4,
-    "cz": "smutná kočka",
-    "en": "a sad cat"
+    "cz": "úcta",
+    "en": "an honor",
+    "lvl": "C1"
   },
   {
     "id": 5,
-    "cz": "úcta",
-    "en": "an honor"
+    "cz": "Ahoj",
+    "en": "Hello",
+    "lvl": "A1"
   },
   {
     "id": 6,
-    "cz": "učitel",
-    "en": "teacher"
+    "cz": "Omlouvám se",
+    "en": "I am sorry",
+    "lvl": "A2"
   },
   {
     "id": 7,
-    "cz": "žák",
-    "en": "a student"
+    "cz": "Jak se máš?",
+    "en": "How are you?",
+    "lvl": "A1"
   },
   {
     "id": 8,
-    "cz": "had",
-    "en": "snake"
-  },
-  {
-    "id": 9,
-    "cz": "Ahoj",
-    "en": "Hello"
+    "cz": "stát",
+    "en": "stand",
+    "lvl": "B1"
   }
 ]

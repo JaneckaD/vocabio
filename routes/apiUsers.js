@@ -32,12 +32,13 @@ function handleApiUsers(req, res) {
 
       const cz = String(data.cz || "").trim();
       const en = String(data.en || "").trim();
+      const lvl = String(data.lvl || "").trim();
 
-      if (!cz || !en) {
-        return sendJson(res, 400, { error: "Chybí cz nebo en" });
+      if (!cz || !en || !lvl) {
+        return sendJson(res, 400, { error: "Chybí cz nebo en nebo lvl" });
       }
 
-      const created = store.create({ cz, en });
+      const created = store.create({ cz, en, lvl });
       return sendJson(res, 201, created);
     });
   }
@@ -53,6 +54,7 @@ function handleApiUsers(req, res) {
       const patch = {};
       if (data.cz !== undefined) patch.cz = String(data.cz).trim();
       if (data.en !== undefined) patch.en = String(data.en);
+      if (data.lvl !== undefined) patch.lvl = String(data.lvl);
 
       const updated = store.update(id, patch);
       if (!updated) return sendJson(res, 404, { error: "Uživatel nenalezen" });

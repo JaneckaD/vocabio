@@ -33,10 +33,10 @@ function getById(id) {
   return users.find((u) => u.id === id) || null;
 }
 
-function create({ cz, en }) {
+function create({ cz, en, lvl }) {
   const users = loadUsers();
   const newId = users.length ? Math.max(...users.map((u) => u.id)) + 1 : 1;
-  const user = { id: newId, cz, en };
+  const user = { id: newId, cz, en, lvl };
   users.push(user);
   saveUsers(users);
   return user;
@@ -49,6 +49,7 @@ function update(id, patch) {
 
   if (patch.cz !== undefined) users[idx].cz = patch.cz;
   if (patch.en !== undefined) users[idx].en = patch.en;
+  if (patch.lvl !== undefined) users[idx].lvl = patch.lvl;
 
   saveUsers(users);
   return users[idx];

@@ -72,6 +72,7 @@ if (req.url === "/seznam" && req.method === "GET") {
             <p class="info">en</p>
             <p class="main">${u.en}</p>
         </div>
+        <p class="level">Úroveň: ${u.lvl}</p>
         <div class="buttons">
             <a href="/seznam/${u.id}" class="detail">detail</a>
         </div>

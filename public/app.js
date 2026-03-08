@@ -15,7 +15,7 @@ if (createForm) {
   createForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const fd = new FormData(createForm);
-    const payload = { cz: fd.get("cz"), en: fd.get("en") };
+    const payload = { cz: fd.get("cz"), en: fd.get("en"), lvl: fd.get("lvl") };
 
     const msg = document.getElementById("createMsg");
     try {
@@ -34,7 +34,7 @@ if (editForm) {
     e.preventDefault();
     const id = editForm.dataset.id;
     const fd = new FormData(editForm);
-    const payload = { cz: fd.get("cz"), en: (fd.get("en")) };
+    const payload = { cz: fd.get("cz"), en: (fd.get("en")), lvl: (fd.get("lvl")) };
 
     const msg = document.getElementById("editMsg");
     try {
