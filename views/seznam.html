@@ -1,6 +1,14 @@
 <div class="content">
     <div class="filtr">
-            
+        <input type="text" placeholder="Vyhledejte...">
+        <select name="" id="choose-lvl">
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+        </select>
     </div>
     <div class="frame">
         <div class="seznam">
@@ -30,7 +38,32 @@
         width: 50%;
         min-width: 400px;
         height: 50px;
-        background-color: pink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .filtr input {
+        width: 90%;
+        height: 22px;
+        border: none;
+        border-radius: 40px;
+        outline: none;
+        color: black;
+        font-weight: 500;
+        box-shadow: 0 0 10px rgb(0, 0, 0, 30%);
+        padding-left: 10px;
+    }
+
+    #choose-lvl {
+        height: 35px;
+        border-radius: 50px;
+        width: 50px;
+        text-align: center;
+        outline: none;
+        border: none;
+        box-shadow: 0 0 10px rgb(0, 0, 0, 30%);
     }
 
     .seznam {
@@ -71,7 +104,7 @@
         margin-bottom: 0px;
         margin-top: 5px;
         text-align: center;
-        color: rgb(148, 148, 148);;
+        color: rgb(148, 148, 148);
     }
     .main {
         font-size: 16px;
