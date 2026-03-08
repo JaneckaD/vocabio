@@ -150,7 +150,7 @@ if (req.method === "GET" && req.url.startsWith("/public/")) {
 
     const tpl = loadView("delete.html");
     const content = render(tpl, user);
-    return sendHtml(res, renderLayout({ title: "Detail", heading: "Detail uživatele", content }));
+    return sendHtml(res, renderLayout({ title: "Delete", heading: "Detail uživatele", content }));
   }
 
 
