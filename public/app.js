@@ -9,17 +9,17 @@ async function api(path, options) {
   return data;
 }
 
-// CREATE (POST /api/seznam)
+// CREATE (POST /api/users)
 const createForm = document.getElementById("createForm");
 if (createForm) {
   createForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const fd = new FormData(createForm);
-    const payload = { cz: fd.get("cz"), en: (fd.get("en")) };
+    const payload = { cz: fd.get("cz"), en: fd.get("en") };
 
     const msg = document.getElementById("createMsg");
     try {
-      await api("/api/pridat", { method: "POST", body: JSON.stringify(payload) });
+      await api("/api/users", { method: "POST", body: JSON.stringify(payload) });
       window.location.reload();
     } catch (err) {
       msg.textContent = "Chyba: " + JSON.stringify(err.data);
@@ -55,7 +55,7 @@ document.addEventListener("click", async (e) => {
   if (!confirm("Opravdu smazat uživatele #" + id + "?")) return;
 
   try {
-    await api(`/api/seznam/${id}`, { method: "DELETE" });
+    await api(`/api/users/${id}`, { method: "DELETE" });
     window.location.href = "/";
   } catch (err) {
     alert("Chyba: " + JSON.stringify(err.data));

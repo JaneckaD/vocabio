@@ -25,15 +25,15 @@ function handleApiUsers(req, res) {
     }
 
 
-  // POST /api/users
-  if (req.url === "/api/seznam" && req.method === "POST") {
+ // POST /api/users
+  if (req.url === "/api/users" && req.method === "POST") {
     return readBodyJson(req, (err, data) => {
       if (err) return sendJson(res, 400, { error: "Neplatný JSON" });
 
       const cz = String(data.cz || "").trim();
       const en = String(data.en || "").trim();
 
-      if (!cz || String.isNaN(en)) {
+      if (!cz || !en) {
         return sendJson(res, 400, { error: "Chybí cz nebo en" });
       }
 
@@ -62,7 +62,7 @@ function handleApiUsers(req, res) {
   }
 
   // DELETE /api/users/:id
-  if (req.url.startsWith("/api/delete/") && req.method === "DELETE") {
+  if (req.url.startsWith("/api/users/") && req.method === "DELETE") {
     const id = Number(req.url.split("/")[3]);
     if (Number.isNaN(id)) return sendJson(res, 400, { error: "Neplatné ID" });
 
