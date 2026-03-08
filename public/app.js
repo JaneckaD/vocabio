@@ -9,6 +9,42 @@ async function api(path, options) {
   return data;
 }
 
+
+// Filtrace
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.querySelector('input[placeholder="Vyhledejte..."]');
+    const levelSelect = document.getElementById('choose-lvl');
+    const cards = document.querySelectorAll('.karta');
+
+    function filterCards() {
+        const searchText = searchInput.value.toLowerCase();
+        const selectedLvl = levelSelect.value;
+
+        cards.forEach(card => {
+            const en = card.dataset.en;
+            const cz = card.dataset.cz;
+            const lvl = card.dataset.lvl;
+
+            const matchesText = en.includes(searchText) || cz.includes(searchText);
+            
+            const matchesLvl = selectedLvl === "" || lvl === selectedLvl;
+
+            if (matchesText && matchesLvl) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+
+    if(searchInput && levelSelect) {
+        searchInput.addEventListener('input', filterCards);
+        levelSelect.addEventListener('change', filterCards);
+    }
+});
+
+
+
 // CREATE (POST /api/users)
 const createForm = document.getElementById("createForm");
 if (createForm) {

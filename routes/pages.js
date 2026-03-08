@@ -60,28 +60,26 @@ if (req.url === "/" && req.method === "GET") {
 if (req.url === "/seznam" && req.method === "GET") {
   const users = store.getAll();
 
-  // Vygenerování kartiček místo řádků tabulky
-  const rows = users.map(u => `
-    <div>
-        <div class="top">
-            <p class="info">cz</p>
-            <p class="main">${u.cz}</p>
-        </div>
-        <div class="line"></div>
-        <div class="bottom">
-            <p class="info">en</p>
-            <p class="main">${u.en}</p>
-        </div>
-        <p class="level">Úroveň: ${u.lvl}</p>
-        <div class="buttons">
-            <a href="/seznam/${u.id}" class="detail">detail</a>
-        </div>
+const rows = users.map(u => `
+  <div class="karta" data-en="${u.en.toLowerCase()}" data-cz="${u.cz.toLowerCase()}" data-lvl="${u.lvl}">
+    <div class="top">
+        <p class="info">cz</p>
+        <p class="main">${u.cz}</p>
     </div>
-  `).join("");
+    <div class="line"></div>
+    <div class="bottom">
+        <p class="info">en</p>
+        <p class="main">${u.en}</p>
+    </div>
+    <p class="level">Úroveň: ${u.lvl}</p>
+    <div class="buttons">
+        <a href="/seznam/${u.id}" class="detail">detail</a>
+    </div>
+  </div>
+`).join("");
 
   const indexTpl = loadView("seznam.html");
   const content = render(indexTpl, {
-    // Pokud je databáze prázdná, zobrazíme hezkou hlášku (místo tabulkového <td colspan>)
     rows: rows || `<div style="grid-column: 1 / -1; text-align: center;">Zatím tu nejsou žádná slovíčka.</div>`
   });
 
@@ -97,23 +95,18 @@ if (req.url === "/seznam" && req.method === "GET") {
 
 
 if (req.method === "GET" && req.url.startsWith("/public/")) {
-    // process.cwd() najde hlavní složku tvého projektu, ať už to spustíš odkudkoliv
     const filePath = path.join(process.cwd(), req.url);
     
     try {
-        // Přečte obrázek z disku
         const data = fs.readFileSync(filePath);
         
-        // Zjistíme, jestli je to PNG nebo JPG
         const isPng = filePath.endsWith('.png');
         const contentType = isPng ? 'image/png' : 'image/jpeg';
         
-        // Pošleme obrázek do prohlížeče
         res.writeHead(200, { 'Content-Type': contentType });
         res.end(data);
-        return; // Ukončíme požadavek
+        return;
     } catch (e) {
-        // Pokud obrázek neexistuje, pošleme 404
         res.writeHead(404);
         res.end("Soubor nenalezen");
         return;

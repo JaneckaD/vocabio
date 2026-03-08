@@ -74,7 +74,7 @@ function handleApiUsers(req, res) {
     return sendJson(res, 200, { message: "Uživatel smazán", user: removed });
   }
 
-  return false; // neobslouženo
+  return false;
 }
 
 module.exports = { handleApiUsers };
