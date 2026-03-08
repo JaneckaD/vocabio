@@ -95,6 +95,30 @@ if (req.url === "/seznam" && req.method === "GET") {
 
 
 
+if (req.method === "GET" && req.url.startsWith("/public/")) {
+    // process.cwd() najde hlavní složku tvého projektu, ať už to spustíš odkudkoliv
+    const filePath = path.join(process.cwd(), req.url);
+    
+    try {
+        // Přečte obrázek z disku
+        const data = fs.readFileSync(filePath);
+        
+        // Zjistíme, jestli je to PNG nebo JPG
+        const isPng = filePath.endsWith('.png');
+        const contentType = isPng ? 'image/png' : 'image/jpeg';
+        
+        // Pošleme obrázek do prohlížeče
+        res.writeHead(200, { 'Content-Type': contentType });
+        res.end(data);
+        return; // Ukončíme požadavek
+    } catch (e) {
+        // Pokud obrázek neexistuje, pošleme 404
+        res.writeHead(404);
+        res.end("Soubor nenalezen");
+        return;
+    }
+}
+
 
       
   // GET /user/:id (detail)
@@ -111,6 +135,25 @@ if (req.url === "/seznam" && req.method === "GET") {
     const content = render(tpl, user);
     return sendHtml(res, renderLayout({ title: "Detail", heading: "Detail uživatele", content }));
   }
+
+
+  
+    // GET /delete/:id
+  if (req.url.startsWith("/delete/") && req.method === "GET") {
+    const id = Number(req.url.split("/")[2]);
+    const user = store.getById(id);
+    if (!user) {
+      const errTpl = loadView("error.html");
+      const content = render(errTpl, { message: "Uživatel nenalezen." });
+      return sendHtml(res, renderLayout({ title: "Chyba", heading: "Chyba", content }), 404);
+    }
+
+    const tpl = loadView("delete.html");
+    const content = render(tpl, user);
+    return sendHtml(res, renderLayout({ title: "Detail", heading: "Detail uživatele", content }));
+  }
+
+
 
 
   // GET /edit/:id (edit formulář)

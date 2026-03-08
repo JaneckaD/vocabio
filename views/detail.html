@@ -13,7 +13,8 @@
 
     <div class="buttons">
       <a href="/edit/{{id}}" class="back">Upravit</a>
-      <button data-delete-id="{{id}}">Smazat</button>
+      <a href="/delete/{{id}}" class="del">Smazat</a>
+      
     </div>
   </form>
 </div>
@@ -66,13 +67,16 @@
     margin-bottom: 20px;
   }
 
-  button {
+  .del {
     background-color: #FF9292;
     border: 2px solid #E58080;
     border-radius: 10px;
     padding: 5px 10px;
     font-weight: 500;
     font-size: 14px;
+    text-decoration: none;
+    text-transform: none;
+    color: black;
   }
 
   .back {
